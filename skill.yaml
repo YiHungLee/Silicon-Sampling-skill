@@ -1,0 +1,91 @@
+name: psychology-survey
+version: 1.0.0
+description: |
+  Silicon Sampling skill for completing self-report psychological questionnaires.
+  Simulates human respondents with specified demographic characteristics to fill out Likert-scale surveys.
+
+author: Psychology Research Team
+license: MIT
+
+# Skill configuration
+config:
+  # Default response mode
+  mode: simulate_human
+
+  # Default Likert scale settings
+  likert:
+    min: 1
+    max: 5
+    labels:
+      1: "非常不同意"
+      2: "不同意"
+      3: "中立"
+      4: "同意"
+      5: "非常同意"
+
+  # Output settings
+  output:
+    format: csv
+    include_metadata: true
+    include_reasoning: false
+
+# Input schema
+input:
+  questionnaire:
+    type: file
+    formats: [json, yaml, csv]
+    description: "問卷題目檔案"
+
+  persona:
+    type: object
+    description: "模擬的人口統計特徵"
+    properties:
+      age:
+        type: integer
+        description: "年齡"
+      gender:
+        type: string
+        enum: [male, female, non-binary, other]
+        description: "性別"
+      education:
+        type: string
+        enum: [elementary, high_school, bachelor, master, doctorate]
+        description: "教育程度"
+      occupation:
+        type: string
+        description: "職業"
+      personality_traits:
+        type: object
+        description: "人格特質 (Big Five)"
+      cultural_background:
+        type: string
+        description: "文化背景"
+      additional_context:
+        type: string
+        description: "額外背景資訊"
+
+  sample_size:
+    type: integer
+    default: 1
+    description: "生成的樣本數量"
+
+# Output schema
+output:
+  responses:
+    type: file
+    format: csv
+    description: "填答結果 CSV 檔案"
+
+  summary:
+    type: object
+    description: "填答摘要統計"
+
+# Prompt file
+prompt: prompt.md
+
+# Examples
+examples:
+  - name: "Big Five Personality Inventory"
+    input_file: examples/big_five.json
+  - name: "Depression Scale (PHQ-9)"
+    input_file: examples/phq9.json

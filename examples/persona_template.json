@@ -1,0 +1,23 @@
+{
+  "persona": {
+    "age": 30,
+    "gender": "female",
+    "education": "bachelor",
+    "occupation": "護理師",
+    "personality_traits": {
+      "extraversion": "medium",
+      "agreeableness": "high",
+      "conscientiousness": "high",
+      "neuroticism": "medium",
+      "openness": "medium"
+    },
+    "cultural_background": "台灣",
+    "socioeconomic_status": "middle",
+    "marital_status": "married",
+    "living_situation": "與配偶和一個孩子同住",
+    "health_status": "良好，無重大疾病",
+    "mental_health_history": "無精神疾病史",
+    "additional_context": "在醫院工作五年，工作滿意度中等，偶爾感到工作壓力"
+  },
+  "_comment": "這是一個 persona 模板範例。您可以根據研究需求修改這些特徵。personality_traits 使用 low/medium/high 來描述 Big Five 人格特質的程度。"
+}
