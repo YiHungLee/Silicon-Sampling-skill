@@ -183,10 +183,12 @@ summary:
 
 ```
 Silicon-Sampling-skill/
-├── skill.yaml                          # Skill 配置檔
-├── prompt.md                           # 主要 prompt 模板
+├── SKILL.md                            # Skill 定義檔（遵循 Anthropic Skills 規範）
 ├── README.md                           # 說明文件
 ├── LICENSE                             # 授權條款
+├── references/                         # 台灣人口統計參考資料
+│   ├── 114-12_Age_composition_by_city.csv   # 民國114年各縣市年齡性別分布
+│   └── 113_education.csv                    # 民國113年教育程度分布
 └── examples/
     ├── population_tw_college.json      # 台灣大學生母群定義
     ├── population_general_adult.json   # 台灣一般成人母群定義
@@ -194,6 +196,18 @@ Silicon-Sampling-skill/
     ├── phq9.json                       # PHQ-9 量表範例
     └── sample_output.csv               # 輸出範例
 ```
+
+## 預設母群
+
+若使用者未指定母群，skill 會使用 **台灣成年人口** 作為預設，依據 `references/` 資料夾中的人口統計資料：
+
+| 屬性 | 分布 |
+|------|------|
+| 性別 | 男 49.2%、女 50.8% |
+| 年齡 | 20-49歲 49.4%、50-64歲 30.5%、65歲以上 20.1% |
+| 教育 | 國小以下 10.8%、國中 9.6%、高中職 28.8%、專科 11.7%、大學 30.4%、研究所 8.7% |
+
+資料來源：內政部戶政司、行政院主計總處
 
 ## 支援的量表格式
 
