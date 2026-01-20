@@ -108,8 +108,11 @@ User: 請幫我用 Silicon Sampling 填答問卷
     },
     "cultural_background": "台灣",
     "personality_tendencies": {
+      "neuroticism": { "mean": 52, "sd": 17 },
       "extraversion": { "mean": 55, "sd": 18 },
-      "openness": { "mean": 62, "sd": 16 }
+      "openness": { "mean": 62, "sd": 16 },
+      "agreeableness": { "mean": 60, "sd": 15 },
+      "conscientiousness": { "mean": 50, "sd": 18 }
     }
   }
 }
@@ -117,7 +120,7 @@ User: 請幫我用 Silicon Sampling 填答問卷
 
 ## Persona 自動生成
 
-根據母群定義，skill 會自動生成指定數量的獨特 persona：
+根據母群定義，skill 會自動生成指定數量的獨特 persona，使用 NEO-PI-R 30 構面人格模型：
 
 ```
 Persona R001:
@@ -125,12 +128,12 @@ Persona R001:
 - 性別: 女
 - 教育: 大學在學（心理學系三年級）
 - 職業: 學生（兼職咖啡店店員）
-- 人格特質:
-  - 外向性 (E): 62
-  - 親和性 (A): 71
-  - 盡責性 (C): 55
-  - 神經質 (N): 48
-  - 開放性 (O): 73
+- 人格特質 (NEO-PI-R 30 Facets, PR 分數 1-100, 50=母群平均):
+  【神經質 N】焦慮:45, 憤怒敵意:38, 憂鬱:42, 自我意識:55, 衝動:52, 脆弱:40
+  【外向性 E】熱情:68, 合群:72, 獨斷:58, 活力:65, 尋求刺激:60, 正向情緒:70
+  【開放性 O】想像:75, 審美:78, 感受:72, 嘗試:68, 理念:70, 價值:65
+  【親和性 A】信任:62, 坦誠:70, 利他:75, 順從:58, 謙虛:55, 溫柔:68
+  【盡責性 C】勝任感:60, 條理:52, 責任:58, 追求成就:62, 自律:48, 深思熟慮:55
 - 背景: 來自台北，對心理學有興趣，社交活躍
 ```
 
@@ -141,23 +144,22 @@ Persona R001:
 
 ## 輸出格式
 
-### 1. responses.csv - 填答結果
+### 1. responses.csv - 填答結果 (Wide Format)
+
+每列為一個 persona，每欄為一個題目：
 
 ```csv
-respondent_id,item_id,response,response_time_ms
-R001,Q1,4,2340
-R001,Q2,2,1890
-R001,Q3,5,3120
-R002,Q1,3,2100
-R002,Q2,3,2450
+respondent_id,BFI10_1,BFI10_2,BFI10_3,BFI10_4,BFI10_5,BFI10_6,BFI10_7,BFI10_8,BFI10_9,BFI10_10
+R001,2,4,5,2,4,4,2,1,4,2
+R002,4,3,3,4,3,2,3,4,2,3
 ```
 
-### 2. personas.csv - Persona 詳細資料
+### 2. personas.csv - Persona 詳細資料 (含 30 構面)
 
 ```csv
-respondent_id,age,gender,education,occupation,extraversion,agreeableness,conscientiousness,neuroticism,openness
-R001,21,female,bachelor_current,student,62,71,55,48,73
-R002,23,male,bachelor_current,student,45,58,67,52,61
+respondent_id,age,gender,education,occupation,background,N1_anxiety,N2_hostility,N3_depression,N4_self_consciousness,N5_impulsiveness,N6_vulnerability,E1_warmth,E2_gregariousness,E3_assertiveness,E4_activity,E5_excitement_seeking,E6_positive_emotions,O1_fantasy,O2_aesthetics,O3_feelings,O4_actions,O5_ideas,O6_values,A1_trust,A2_straightforwardness,A3_altruism,A4_compliance,A5_modesty,A6_tender_mindedness,C1_competence,C2_order,C3_dutifulness,C4_achievement_striving,C5_self_discipline,C6_deliberation
+R001,21,female,bachelor_3,student_parttime,"台北，心理系",45,38,42,55,52,40,68,72,58,65,60,70,75,78,72,68,70,65,62,70,75,58,55,68,60,52,58,62,48,55
+R002,23,male,bachelor_4,student,"新竹，資工系",52,45,55,60,48,58,42,38,45,50,55,40,60,55,58,52,65,60,55,58,52,62,65,55,55,48,52,58,45,52
 ```
 
 ### 3. Summary - 摘要統計
