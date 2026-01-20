@@ -1,0 +1,106 @@
+{
+  "questionnaire": {
+    "name": "Big Five Inventory-10 (BFI-10)",
+    "description": "簡版五大人格量表，測量外向性、親和性、盡責性、神經質和開放性五個人格維度",
+    "language": "zh-TW",
+    "citation": "Rammstedt, B., & John, O. P. (2007). Measuring personality in one minute or less: A 10-item short version of the Big Five Inventory in English and German. Journal of Research in Personality, 41(1), 203-212.",
+    "scale": {
+      "type": "likert",
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "非常不同意",
+        "2": "不同意",
+        "3": "中立",
+        "4": "同意",
+        "5": "非常同意"
+      }
+    },
+    "instruction": "以下是一些可能適用或不適用於您的性格特徵。請根據您對自己的看法，表示您同意或不同意每個陳述的程度。",
+    "items": [
+      {
+        "item_id": "BFI10_1",
+        "text": "我認為自己是一個話不多的人",
+        "dimension": "Extraversion",
+        "reverse_scored": true
+      },
+      {
+        "item_id": "BFI10_2",
+        "text": "我認為自己是一個善於與人交流、樂於助人的人",
+        "dimension": "Agreeableness",
+        "reverse_scored": false
+      },
+      {
+        "item_id": "BFI10_3",
+        "text": "我認為自己是一個做事有條理的人",
+        "dimension": "Conscientiousness",
+        "reverse_scored": false
+      },
+      {
+        "item_id": "BFI10_4",
+        "text": "我認為自己是一個容易緊張的人",
+        "dimension": "Neuroticism",
+        "reverse_scored": false
+      },
+      {
+        "item_id": "BFI10_5",
+        "text": "我認為自己是一個對藝術和美學有興趣的人",
+        "dimension": "Openness",
+        "reverse_scored": false
+      },
+      {
+        "item_id": "BFI10_6",
+        "text": "我認為自己是一個外向、善於交際的人",
+        "dimension": "Extraversion",
+        "reverse_scored": false
+      },
+      {
+        "item_id": "BFI10_7",
+        "text": "我認為自己是一個容易挑剔別人缺點的人",
+        "dimension": "Agreeableness",
+        "reverse_scored": true
+      },
+      {
+        "item_id": "BFI10_8",
+        "text": "我認為自己是一個做事有些粗心的人",
+        "dimension": "Conscientiousness",
+        "reverse_scored": true
+      },
+      {
+        "item_id": "BFI10_9",
+        "text": "我認為自己是一個能保持冷靜、不容易受壓力影響的人",
+        "dimension": "Neuroticism",
+        "reverse_scored": true
+      },
+      {
+        "item_id": "BFI10_10",
+        "text": "我認為自己是一個缺乏想像力的人",
+        "dimension": "Openness",
+        "reverse_scored": true
+      }
+    ],
+    "scoring": {
+      "Extraversion": ["BFI10_1R", "BFI10_6"],
+      "Agreeableness": ["BFI10_2", "BFI10_7R"],
+      "Conscientiousness": ["BFI10_3", "BFI10_8R"],
+      "Neuroticism": ["BFI10_4", "BFI10_9R"],
+      "Openness": ["BFI10_5", "BFI10_10R"]
+    }
+  },
+  "persona": {
+    "age": 25,
+    "gender": "female",
+    "education": "bachelor",
+    "occupation": "軟體工程師",
+    "personality_traits": {
+      "extraversion": "medium",
+      "agreeableness": "high",
+      "conscientiousness": "high",
+      "neuroticism": "low",
+      "openness": "high"
+    },
+    "cultural_background": "台灣",
+    "additional_context": "在科技公司工作，喜歡閱讀和旅行"
+  },
+  "sample_size": 1
+}

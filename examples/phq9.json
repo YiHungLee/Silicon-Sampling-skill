@@ -1,0 +1,93 @@
+{
+  "questionnaire": {
+    "name": "Patient Health Questionnaire-9 (PHQ-9)",
+    "description": "病人健康問卷-9，用於篩檢和測量憂鬱症狀嚴重程度的自我報告量表",
+    "language": "zh-TW",
+    "citation": "Kroenke, K., Spitzer, R. L., & Williams, J. B. (2001). The PHQ-9: validity of a brief depression severity measure. Journal of General Internal Medicine, 16(9), 606-613.",
+    "scale": {
+      "type": "likert",
+      "min": 0,
+      "max": 3,
+      "labels": {
+        "0": "完全沒有",
+        "1": "幾天",
+        "2": "超過一半的天數",
+        "3": "幾乎每天"
+      }
+    },
+    "instruction": "在過去兩週內，您有多常受到以下問題的困擾？",
+    "items": [
+      {
+        "item_id": "PHQ9_1",
+        "text": "做事缺乏興趣或樂趣",
+        "symptom": "Anhedonia"
+      },
+      {
+        "item_id": "PHQ9_2",
+        "text": "感到情緒低落、沮喪或絕望",
+        "symptom": "Depressed mood"
+      },
+      {
+        "item_id": "PHQ9_3",
+        "text": "難以入睡、難以持續睡眠或睡太多",
+        "symptom": "Sleep disturbance"
+      },
+      {
+        "item_id": "PHQ9_4",
+        "text": "感到疲倦或精力不足",
+        "symptom": "Fatigue"
+      },
+      {
+        "item_id": "PHQ9_5",
+        "text": "食慾不振或吃太多",
+        "symptom": "Appetite changes"
+      },
+      {
+        "item_id": "PHQ9_6",
+        "text": "覺得自己很差勁——或覺得自己很失敗，或讓自己或家人失望",
+        "symptom": "Worthlessness"
+      },
+      {
+        "item_id": "PHQ9_7",
+        "text": "難以專注於事情，例如閱讀報紙或看電視",
+        "symptom": "Concentration difficulty"
+      },
+      {
+        "item_id": "PHQ9_8",
+        "text": "行動或說話緩慢到別人可能注意到的程度？或者相反——坐立不安或焦躁到比平常動得更多",
+        "symptom": "Psychomotor changes"
+      },
+      {
+        "item_id": "PHQ9_9",
+        "text": "有想過自己最好死了，或者以某種方式傷害自己的念頭",
+        "symptom": "Suicidal ideation"
+      }
+    ],
+    "scoring": {
+      "total_range": "0-27",
+      "severity_levels": {
+        "0-4": "無或極輕微",
+        "5-9": "輕度",
+        "10-14": "中度",
+        "15-19": "中重度",
+        "20-27": "重度"
+      }
+    }
+  },
+  "persona": {
+    "age": 35,
+    "gender": "male",
+    "education": "master",
+    "occupation": "大學教師",
+    "personality_traits": {
+      "extraversion": "low",
+      "agreeableness": "medium",
+      "conscientiousness": "high",
+      "neuroticism": "medium",
+      "openness": "high"
+    },
+    "cultural_background": "台灣",
+    "additional_context": "工作壓力適中，有穩定的社交支持網絡，整體心理健康狀態良好"
+  },
+  "sample_size": 1
+}
