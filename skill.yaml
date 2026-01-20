@@ -1,8 +1,9 @@
 name: psychology-survey
-version: 1.0.0
+version: 2.0.0
 description: |
   Silicon Sampling skill for completing self-report psychological questionnaires.
-  Simulates human respondents with specified demographic characteristics to fill out Likert-scale surveys.
+  Simulates human respondents based on population characteristics to fill out Likert-scale surveys.
+  Features interactive workflow to collect population definition and sample size.
 
 author: Psychology Research Team
 license: MIT
@@ -27,47 +28,92 @@ config:
   output:
     format: csv
     include_metadata: true
-    include_reasoning: false
+    include_persona_details: true
+
+# Workflow steps
+workflow:
+  - step: collect_population
+    description: "收集母群定義（若未指定則詢問使用者）"
+    required: true
+
+  - step: collect_sample_size
+    description: "收集樣本數量（若未指定則詢問使用者）"
+    required: true
+
+  - step: collect_questionnaire
+    description: "收集量表題目"
+    required: true
+
+  - step: generate_personas
+    description: "根據母群特徵自動生成指定數量的 persona"
+
+  - step: simulate_responses
+    description: "根據每個 persona 模擬填答行為"
+
+  - step: output_csv
+    description: "輸出 CSV 格式結果"
 
 # Input schema
 input:
-  questionnaire:
-    type: file
-    formats: [json, yaml, csv]
-    description: "問卷題目檔案"
-
-  persona:
+  population:
     type: object
-    description: "模擬的人口統計特徵"
+    required: true
+    description: "目標母群定義"
     properties:
-      age:
-        type: integer
-        description: "年齡"
-      gender:
+      name:
         type: string
-        enum: [male, female, non-binary, other]
-        description: "性別"
-      education:
-        type: string
-        enum: [elementary, high_school, bachelor, master, doctorate]
-        description: "教育程度"
-      occupation:
-        type: string
-        description: "職業"
-      personality_traits:
+        description: "母群名稱（例如：台灣大學生、美國上班族）"
+      age_range:
         type: object
-        description: "人格特質 (Big Five)"
+        properties:
+          min: { type: integer }
+          max: { type: integer }
+          distribution: { type: string, enum: [uniform, normal, skewed_young, skewed_old] }
+        description: "年齡範圍與分布"
+      gender_distribution:
+        type: object
+        description: "性別分布比例"
+        properties:
+          male: { type: number }
+          female: { type: number }
+          non_binary: { type: number }
+      education_distribution:
+        type: object
+        description: "教育程度分布"
+      occupation_types:
+        type: array
+        items: { type: string }
+        description: "常見職業類型"
       cultural_background:
         type: string
         description: "文化背景"
-      additional_context:
+      personality_tendencies:
+        type: object
+        description: "母群的人格特質傾向（Big Five 各維度的平均與變異）"
+      additional_characteristics:
         type: string
-        description: "額外背景資訊"
+        description: "其他母群特徵描述"
 
   sample_size:
     type: integer
-    default: 1
-    description: "生成的樣本數量"
+    required: true
+    minimum: 1
+    maximum: 100
+    description: "需要生成的樣本數量"
+
+  questionnaire:
+    type: object
+    required: true
+    description: "量表題目"
+    properties:
+      name:
+        type: string
+      instruction:
+        type: string
+      scale:
+        type: object
+      items:
+        type: array
 
 # Output schema
 output:
@@ -75,6 +121,27 @@ output:
     type: file
     format: csv
     description: "填答結果 CSV 檔案"
+    columns:
+      - respondent_id
+      - item_id
+      - response
+      - response_time_ms
+
+  personas:
+    type: file
+    format: csv
+    description: "生成的 persona 詳細資料"
+    columns:
+      - respondent_id
+      - age
+      - gender
+      - education
+      - occupation
+      - extraversion
+      - agreeableness
+      - conscientiousness
+      - neuroticism
+      - openness
 
   summary:
     type: object
@@ -85,7 +152,9 @@ prompt: prompt.md
 
 # Examples
 examples:
-  - name: "Big Five Personality Inventory"
-    input_file: examples/big_five.json
-  - name: "Depression Scale (PHQ-9)"
-    input_file: examples/phq9.json
+  - name: "台灣大學生母群 + BFI-10"
+    population_file: examples/population_tw_college.json
+    questionnaire_file: examples/big_five_bfi10.json
+  - name: "一般成人母群 + PHQ-9"
+    population_file: examples/population_general_adult.json
+    questionnaire_file: examples/phq9.json

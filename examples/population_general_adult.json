@@ -1,0 +1,88 @@
+{
+  "population": {
+    "name": "台灣一般成人",
+    "description": "台灣 20-60 歲的一般成年人口",
+
+    "age_range": {
+      "min": 20,
+      "max": 60,
+      "mean": 38,
+      "sd": 12,
+      "distribution": "normal"
+    },
+
+    "gender_distribution": {
+      "male": 0.49,
+      "female": 0.50,
+      "non_binary": 0.01
+    },
+
+    "education_distribution": {
+      "junior_high": 0.08,
+      "high_school": 0.25,
+      "vocational": 0.15,
+      "bachelor": 0.38,
+      "master": 0.12,
+      "doctorate": 0.02
+    },
+
+    "occupation_types": [
+      "製造業從業人員",
+      "服務業從業人員",
+      "科技業工程師",
+      "教育工作者",
+      "醫療從業人員",
+      "金融業從業人員",
+      "公務員",
+      "自營商/創業者",
+      "家管",
+      "退休人員"
+    ],
+
+    "income_distribution": {
+      "low": 0.25,
+      "middle": 0.55,
+      "high": 0.20
+    },
+
+    "cultural_background": "台灣",
+
+    "personality_tendencies": {
+      "extraversion": {
+        "mean": 50,
+        "sd": 18
+      },
+      "agreeableness": {
+        "mean": 58,
+        "sd": 15,
+        "note": "台灣文化重視人際和諧"
+      },
+      "conscientiousness": {
+        "mean": 55,
+        "sd": 16,
+        "note": "工作者責任感較高"
+      },
+      "neuroticism": {
+        "mean": 48,
+        "sd": 18
+      },
+      "openness": {
+        "mean": 52,
+        "sd": 17
+      }
+    },
+
+    "additional_characteristics": {
+      "marital_status_distribution": {
+        "single": 0.30,
+        "married": 0.55,
+        "divorced": 0.10,
+        "widowed": 0.05
+      },
+      "has_children": 0.55,
+      "living_situation": ["獨居", "與配偶同住", "與家人同住", "與父母同住"],
+      "primary_stressors": ["工作壓力", "經濟壓力", "家庭責任", "健康問題", "子女教育"],
+      "health_concerns": ["睡眠問題", "慢性疲勞", "肩頸痠痛", "代謝症候群"]
+    }
+  }
+}

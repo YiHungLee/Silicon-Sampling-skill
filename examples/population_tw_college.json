@@ -1,0 +1,82 @@
+{
+  "population": {
+    "name": "台灣大學生",
+    "description": "就讀於台灣各大專院校的在學學生",
+
+    "age_range": {
+      "min": 18,
+      "max": 24,
+      "mean": 20.5,
+      "sd": 1.5,
+      "distribution": "normal"
+    },
+
+    "gender_distribution": {
+      "male": 0.48,
+      "female": 0.50,
+      "non_binary": 0.02
+    },
+
+    "education_distribution": {
+      "bachelor_year1": 0.25,
+      "bachelor_year2": 0.25,
+      "bachelor_year3": 0.25,
+      "bachelor_year4": 0.20,
+      "master_year1": 0.05
+    },
+
+    "major_fields": [
+      "理工",
+      "商管",
+      "人文社會",
+      "醫學健康",
+      "藝術設計",
+      "教育",
+      "法律",
+      "農業生科"
+    ],
+
+    "occupation_types": [
+      "全職學生",
+      "學生（兼職打工）",
+      "學生（實習中）"
+    ],
+
+    "cultural_background": "台灣",
+
+    "personality_tendencies": {
+      "extraversion": {
+        "mean": 55,
+        "sd": 18,
+        "note": "大學生整體略偏外向"
+      },
+      "agreeableness": {
+        "mean": 60,
+        "sd": 15,
+        "note": "台灣文化傾向和諧"
+      },
+      "conscientiousness": {
+        "mean": 50,
+        "sd": 18,
+        "note": "個體差異較大"
+      },
+      "neuroticism": {
+        "mean": 52,
+        "sd": 17,
+        "note": "學業壓力可能略提高"
+      },
+      "openness": {
+        "mean": 62,
+        "sd": 16,
+        "note": "大學生對新經驗較開放"
+      }
+    },
+
+    "additional_characteristics": {
+      "living_situation": ["住家裡", "學校宿舍", "校外租屋"],
+      "social_media_usage": "高度使用",
+      "primary_stressors": ["學業壓力", "未來就業", "人際關係", "經濟壓力"],
+      "typical_activities": ["上課", "社團", "打工", "追劇", "遊戲", "運動"]
+    }
+  }
+}
