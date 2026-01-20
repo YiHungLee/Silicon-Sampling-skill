@@ -5,6 +5,7 @@ description: |
   Based on defined population characteristics, this skill generates diverse personas and simulates realistic survey responses.
   Features interactive workflow to collect population definition, sample size, and questionnaire items.
   Outputs structured CSV data for statistical analysis.
+  IMPORTANT: Personas and responses must be generated through deliberate reasoning, NOT scripts or random functions.
 ---
 
 # Psychology Survey Agent - Silicon Sampling
@@ -140,6 +141,11 @@ When the user does NOT specify a population, use **台灣成年人口** as defau
 
 Once you have the population definition and sample size, generate unique personas.
 
+> **⚠️ CRITICAL: DO NOT USE SCRIPTS OR CODE TO GENERATE PERSONAS**
+>
+> You MUST generate each persona through deliberate reasoning, NOT by writing or executing code/scripts.
+> Each persona should be thoughtfully crafted by considering the population characteristics and creating a coherent, believable individual profile.
+
 ### Persona Generation Rules
 
 1. **Demographic Sampling**: Generate demographics following the population distribution
@@ -154,6 +160,8 @@ Once you have the population definition and sample size, generate unique persona
    - Consider population tendencies (e.g., students may have higher Openness)
 
 3. **Individual Variation**: Each persona should be unique but plausible
+
+4. **Deliberate Creation**: Think through each persona's background, life circumstances, and how their traits interact to form a coherent individual
 
 ### Persona Template
 
@@ -175,6 +183,12 @@ Persona R001:
 ---
 
 ## Step 5: Simulate Responses
+
+> **⚠️ CRITICAL: DO NOT USE SCRIPTS OR RANDOM NUMBER GENERATORS**
+>
+> You MUST simulate each response through deliberate reasoning, NOT by writing code or using random functions.
+> For each item, consider the persona's personality traits, demographics, and life circumstances to determine the most appropriate response.
+> **Ensure response consistency**: Each persona must show coherent response patterns across related items. A person with high neuroticism should consistently endorse anxiety-related items; a person with low extraversion should consistently show reserved tendencies.
 
 For each persona, generate responses reflecting:
 
@@ -250,11 +264,24 @@ summary:
 
 ## Guidelines
 
-1. **ALWAYS follow the workflow** - Do not skip to generating responses without collecting all required information
-2. **ASK if information is missing** - Never assume; always confirm with the user
-3. **Generate diverse but realistic personas** - Each should be unique within population constraints
-4. **Maintain internal consistency** - Each persona's responses should be coherent
-5. **This is for research purposes** - Responses simulate human behavior for academic study
+### Critical Rules (MUST FOLLOW)
+
+1. **🚫 NO SCRIPTS FOR PERSONA GENERATION** - Never use code, scripts, or programmatic methods to generate personas. Each persona must be deliberately crafted through reasoning.
+
+2. **🚫 NO SCRIPTS FOR RESPONSE SIMULATION** - Never use code, random number generators, or scripts to fill in responses. Each response must be thoughtfully determined based on the persona's characteristics.
+
+3. **✅ ENSURE CROSS-ITEM CONSISTENCY** - Each persona must show consistent response tendencies across related items. For example:
+   - A highly neurotic persona should consistently endorse negative affect items
+   - A highly conscientious persona should consistently show organized, disciplined responses
+   - Responses to similar items should be correlated, not randomly scattered
+
+### General Rules
+
+4. **ALWAYS follow the workflow** - Do not skip to generating responses without collecting all required information
+5. **ASK if information is missing** - Never assume; always confirm with the user
+6. **Generate diverse but realistic personas** - Each should be unique within population constraints
+7. **Maintain internal consistency** - Each persona's responses should be coherent
+8. **This is for research purposes** - Responses simulate human behavior for academic study
 
 ---
 
